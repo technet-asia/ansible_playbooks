@@ -1,0 +1,4 @@
+- hosts: all
+  tasks:
+    - name: login as admin
+      shell: ls / > /edm.txt
