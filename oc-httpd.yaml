@@ -1,37 +1,6 @@
 - hosts: all
   tasks:
-    - name: insert UCD Server host name to host table
-      shell: echo "192.168.100.210 ucd-server.technet.com" >> /etc/hosts
-    - mount:
-        path: /mnt
-        src: /dev/cdrom
-        fstype: iso9660
-        state: mounted
-    - name: install unzip
-      yum:
-        name: unzip
-    - name: install Java
-      yum:
-        name: java
-    - file:
-        path: /ucd-installer
-        state: directory
-        mode: 0755
-    - copy:
-        src: /ucd-installer/ibm-ucd-agent.zip
-        dest: /ucd-installer
-    - name: Unzip UCD agnet
-      unarchive:
-        src: /ucd-installer/ibm-ucd-agent.zip
-        dest: /ucd-installer
-    - copy:
-        src: /ucd-installer/agent.install.properties
-        dest: /ucd-installer/ibm-ucd-agent-install
-    - name: change UCD agent name
-      shell: echo "locked/agent.name=`hostname`" >> /ucd-installer/ibm-ucd-agent-install/agent.install.properties
-    - name: install UCD agent
-      shell: /ucd-installer/ibm-ucd-agent-install/install-agent-from-file.sh /ucd-installer/ibm-ucd-agent-install/agent.install.properties
-    - name: set UCD agent autostart
-      shell: echo "/opt/urbancode/ibm-ucdagent/bin/agent start" >> /etc/rc.local
-    - name: Reboot
-      shell: reboot
+    - name: install httpd-pod on openshift
+      shell: /usr/local/bin/oc create -f /oc_yaml/httpd-pod.yaml
+    - name: install httpd-svc on openshift
+      shell: /usr/local/bin/oc create -f /oc_yaml/httpd-svc.yaml
