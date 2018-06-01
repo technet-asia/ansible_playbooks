@@ -1,8 +1,0 @@
-- hosts: all  
-  tasks:
-    - name: login as admin
-      shell: /usr/local/bin/oc login -u system:admin
-    - name: install httpd-pod on openshift
-      shell: /usr/local/bin/oc delete -f /oc_yaml/httpd-pod.yaml
-    - name: install httpd-svc on openshift
-      shell: /usr/local/bin/oc delete -f /oc_yaml/httpd-svc.yaml
