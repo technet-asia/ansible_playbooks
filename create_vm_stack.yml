@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - name: Terraform apply template
+      shell: echo "yes" | /terraform/terraform apply
+      args:
+        chdir: /terraform/template
