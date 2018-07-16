@@ -1,0 +1,4 @@
+- hosts: all
+  tasks:
+    - name: Test Connection
+      shell: echo "yes" > /testing.txt
