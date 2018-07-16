@@ -3,4 +3,4 @@
     - name: Terraform apply template
       shell: echo "yes" | /terraform/terraform apply
       args:
-        chdir: /terraform/template
+        chdir: /terraform/templates
