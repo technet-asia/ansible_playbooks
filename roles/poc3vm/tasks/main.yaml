@@ -1,7 +1,7 @@
 - name: Set Varible
   set_fact:
     ipcount: "{{ 0 if (prj == 'CAP') else 3 if (prj == 'FO') else 6 }}"
-- name: Terraform apply template
+- name: Copy tf file
   template:
     src: prod-3vm-stack.tf
     dest: /terraform/stacks/{{prj}}/prod-vm-stack.tf
