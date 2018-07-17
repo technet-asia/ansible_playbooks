@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+    - template:
+        src: prod-3vm-stack.tf
+        dest: /terraform/stacks/{{prj}}/prod-vm-stack.tf
+        remote_src: true
+    - name: Terraform apply template
+      shell: echo "yes" | /terraform/terraform apply
+      args:
+        chdir: /terraform/stacks/{{prj}}
