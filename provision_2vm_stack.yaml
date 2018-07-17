@@ -6,8 +6,4 @@
   tasks:
      - name: Set Varible
        set_fact:
-         ipcount: "{{ 0 if ({{prj}} == 'CAP') }}"
-       set_fact:
-         ipcount: "{{ 3 if ({{prj}} == 'FO') }}"
-       set_fact:
-         ipcount: "{{ 6 if ({{prj}} == 'ITGW') }}"
+         ipcount: "{{ 0 if ({{prj}} == 'CAP') else {{ 3 if ({{prj}} == 'FO') else 6 }} }}"
