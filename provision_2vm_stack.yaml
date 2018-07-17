@@ -7,6 +7,6 @@
      - set_fact:
        {{ipcount}}: "{{ 0 if ({{prj}} == 'CAP') }}
      - set_fact:
-       {{ipcount}}: "{{ 3 if ({{prj}} == 'FO') }
+       {{ipcount}}: "{{ 3 if ({{prj}} == 'FO') }}
       - set_fact:
        {{ipcount}}: "{{ 6 if ({{prj}} == 'ITGW') }}
