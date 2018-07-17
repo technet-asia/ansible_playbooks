@@ -1,3 +1,5 @@
 - hosts: all
+  vars:
+    ipcount: 0
   roles:
      - poc2vm
