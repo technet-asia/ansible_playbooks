@@ -1,3 +1,6 @@
+- name: Set Varible
+  set_fact:
+    ipcount: "{{ 0 if (prj == 'CAP') else 3 if (prj == 'FO') else 6 }}"
 - name: Copy tf file
   template:
     src: prod-2vm-stack.tf
