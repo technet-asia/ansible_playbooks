@@ -3,4 +3,4 @@
     - name: Terraform destroy stack
       shell: echo "yes" | /terraform/terraform destroy
       args:
-        chdir: /terraform/stacks
+        chdir: /terraform/stacks/{{prj}}
