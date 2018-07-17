@@ -97,12 +97,12 @@ resource "vsphere_virtual_machine" "prod-vm-stack" {
 
     customize {
       linux_options {
-        host_name = "prod-vm-${format("%02d", count.index+1)}"
+        host_name = "prod-{{prj}}-vm-${format("%02d", count.index+1)}"
         domain    = ""
       }
 
       network_interface {
-        ipv4_address = "192.168.${lookup(var.instance_ip, count.index)}"
+        ipv4_address = "192.168.${lookup(var.instance_ip, count.index+{{ipcount}})}"
         ipv4_netmask = 24
       }
 
