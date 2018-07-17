@@ -1,12 +1,10 @@
 - hosts: all
-  vars:
-    ipcount: 0
   roles:
      - poc2vm
   tasks:
      - set_fact:
-         {{ipcount}}: "{{ 0 if ({{prj}} == 'CAP') }}"
+         ipcount: "{{ 0 if ({{prj}} == 'CAP') }}"
      - set_fact:
-         {{ipcount}}: "{{ 3 if ({{prj}} == 'FO') }}"
+         ipcount: "{{ 3 if ({{prj}} == 'FO') }}"
      - set_fact:
-         {{ipcount}}: "{{ 6 if ({{prj}} == 'ITGW') }}"
+         ipcount: "{{ 6 if ({{prj}} == 'ITGW') }}"
