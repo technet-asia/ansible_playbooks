@@ -73,7 +73,7 @@ data "vsphere_virtual_machine" "template" {
 }
 
 resource "vsphere_virtual_machine" "prod-vm-stack" {
-  name   = "prod-vm-${format("%02d", count.index+1)}"
+  name   = "prod-{{prj}}-vm-${format("%02d", count.index+1)}"
   num_cpus   = 2
   memory = 1024
   guest_id = "${data.vsphere_virtual_machine.template.guest_id}"
