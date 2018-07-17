@@ -1,8 +1,7 @@
-- name: Terraform apply template
+- name: Copy tf file
   template:
     src: prod-2vm-stack.tf
     dest: /terraform/stacks/{{prj}}/prod-vm-stack.tf
-    remote_src: true
 - name: Terraform apply template
   shell: echo "yes" | /terraform/terraform apply
   args:
