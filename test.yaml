@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: {{ipaddr}}
   tasks:
     - name: Test Connection
-      shell: echo "{{prj}}" >> /testing.txt
+      shell: echo "{{ipaddr}}" >> /testing.txt
