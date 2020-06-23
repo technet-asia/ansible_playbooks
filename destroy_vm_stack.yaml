@@ -1,6 +1,0 @@
-- hosts: all
-  tasks:
-    - name: Terraform destroy stack
-      shell: echo "yes" | /terraform/terraform destroy
-      args:
-        chdir: /terraform/stacks/{{retire_prj}}
