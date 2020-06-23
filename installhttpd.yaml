@@ -1,6 +1,0 @@
-- hosts: all
-  tasks:
-    - name: Install httpd
-      shell: yum install -y httpd
-    - name: Start httpd service
-      shell: service httpd start      
