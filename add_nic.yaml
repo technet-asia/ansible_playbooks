@@ -3,12 +3,10 @@
     - name: Add guest NIC
       vmware_guest_network:
         hostname: "10.9.19.204"
-        username: "root"
-        password: "TnPassw0rd1"
         datacenter: "technet-asia.com"
         folder: "technet-asia.com/Others"
         validate_certs: no
-        name: am5
+        name: {{ vm_name }}
         gather_network_info: false
         networks:
           - name: "VM Network"
