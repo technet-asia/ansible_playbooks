@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   tasks:
-    - name: Add guest NIC
+    - name: Add guest NIC (Others)
       vmware_guest_network:
         hostname: "10.9.19.204"
         datacenter: "technet-asia.com"
@@ -13,3 +13,18 @@
           - name: "VM Network"
             state: new
       delegate_to: localhost
+      when: placement_folder_name == 6
+
+    - name: Add guest NIC (MISC)
+      vmware_guest_network:
+        hostname: "10.9.19.204"
+        datacenter: "technet-asia.com"
+        folder: "technet-asia.com/MISC"
+        validate_certs: no
+        name: "{{ vm_name }}"
+        gather_network_info: false
+        networks:
+          - name: "VM Network"
+            state: new
+      delegate_to: localhost
+      when: placement_folder_name == 9
