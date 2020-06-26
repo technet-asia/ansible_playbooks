@@ -1,11 +1,10 @@
 ---
 - hosts: localhost
   tasks:
-    - name: Add guest NIC (Others)
+    - name: Add guest NIC
       vmware_guest_network:
         hostname: "10.9.19.204"
         datacenter: "technet-asia.com"
-        folder: "technet-asia.com/Others"
         validate_certs: no
         name: "{{ vm_name }}"
         gather_network_info: false
@@ -13,18 +12,4 @@
           - name: "PG_ICO_Infra_MGM"
             state: new
       delegate_to: localhost
-      when: placement_folder_name == 6 and num_network_adapters == 2
-
-    - name: Add guest NIC (MISC)
-      vmware_guest_network:
-        hostname: "10.9.19.204"
-        datacenter: "technet-asia.com"
-        folder: "technet-asia.com/MISC"
-        validate_certs: no
-        name: "{{ vm_name }}"
-        gather_network_info: false
-        networks:
-          - name: "PG_ICO_Infra_MGM"
-            state: new
-      delegate_to: localhost
-      when: placement_folder_name == 9 and num_network_adapters == 2
+      when: num_network_adapters == 2
