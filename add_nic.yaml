@@ -13,7 +13,7 @@
           - name: "PG_ICO_Infra_MGM"
             state: new
       delegate_to: localhost
-      when: placement_folder_name == 6
+      when: placement_folder_name == 6 and num_network_adapters == 2
 
     - name: Add guest NIC (MISC)
       vmware_guest_network:
@@ -27,4 +27,4 @@
           - name: "PG_ICO_Infra_MGM"
             state: new
       delegate_to: localhost
-      when: placement_folder_name == 9
+      when: placement_folder_name == 9 and num_network_adapters == 2
