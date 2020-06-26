@@ -10,7 +10,7 @@
         name: "{{ vm_name }}"
         gather_network_info: false
         networks:
-          - name: "VM Network"
+          - name: "PG_ICO_Infra_MGM"
             state: new
       delegate_to: localhost
       when: placement_folder_name == 6
@@ -24,7 +24,7 @@
         name: "{{ vm_name }}"
         gather_network_info: false
         networks:
-          - name: "VM Network"
+          - name: "PG_ICO_Infra_MGM"
             state: new
       delegate_to: localhost
       when: placement_folder_name == 9
