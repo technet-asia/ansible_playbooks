@@ -7,7 +7,7 @@
         datacenter: "technet-asia.com"
         folder: "technet-asia.com/Others"
         validate_certs: no
-        name: {{ vm_name }}
+        name: "{{ vm_name }}"
         gather_network_info: false
         networks:
           - name: "VM Network"
