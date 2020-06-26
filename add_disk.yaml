@@ -16,4 +16,4 @@
             unit_number: 1
       delegate_to: localhost
       register: disk_facts
-      when: check_add_disk == "t"
+      when: check_add_disk | length > 0
