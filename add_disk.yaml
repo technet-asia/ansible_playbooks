@@ -17,3 +17,4 @@
       delegate_to: localhost
       register: disk_facts
       when: check_add_disk | length > 0
+    - debug: var=check_add_disk
