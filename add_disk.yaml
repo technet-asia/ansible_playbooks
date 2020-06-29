@@ -16,4 +16,3 @@
             unit_number: 1
       delegate_to: localhost
       when: add_disk_size > 0
-    - debug: var=check_add_disk
