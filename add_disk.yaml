@@ -8,12 +8,11 @@
         validate_certs: no
         name: "{{ vm_name }}"
         disk:
-          - size_gb: {{ add_disk_size }}
+          - size_gb: "{{ add_disk_size }}"
             type: thin
             datastore: vmstorei02
             state: present
             scsi_controller: 0
             unit_number: 1
       delegate_to: localhost
-      register: disk_facts
       when: add_disk_size > 0
