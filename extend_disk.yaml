@@ -15,4 +15,4 @@
             scsi_controller: 0
             unit_number: 0
       delegate_to: localhost
-      when: root_disk_size > 0
+      when: root_disk_size > 20
