@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Extend root disk to virtual machine
+      vmware_guest_disk:
+        hostname: "10.9.19.204"
+        datacenter: "technet-asia.com"
+        validate_certs: no
+        name: "{{ vm_name }}"
+        disk:
+          - size_gb: "{{ root_disk_size }}"
+            type: thin
+            datastore: vmstorei02
+            state: present
+            scsi_controller: 0
+            unit_number: 0
+      delegate_to: localhost
+      when: root_disk_size > 0
